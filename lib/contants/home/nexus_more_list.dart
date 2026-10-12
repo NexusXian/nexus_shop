@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+class NexusMoreList extends StatefulWidget {
+  const NexusMoreList({super.key});
+
+  @override
+  State<NexusMoreList> createState() => _NexusMoreListState();
+}
+
+class _NexusMoreListState extends State<NexusMoreList> {
+  @override
+  Widget build(BuildContext context) {
+    return SliverGrid.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+      ),
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          child: Text(
+            "商品",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          color: Colors.blue,
+          alignment: Alignment.center,
+        );
+      },
+    );
+  }
+}
