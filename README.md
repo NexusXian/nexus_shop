@@ -1,17 +1,19 @@
-# nexus_shop
+# Nexus Shop
 
-A new Flutter project.
+Nexus Shop is a demo project for learning Flutter through a shopping app interface. It brings together commonly used Flutter widgets and layout patterns to provide hands-on practice building user interfaces.
 
-## Getting Started
+## What You Can Learn
 
-This project is a starting point for a Flutter application.
+- Building layouts with `Scaffold`, `SafeArea`, `Padding`, `Flex`, and `Expanded`.
+- Switching between Home, Category, Cart, and Profile tabs with `BottomNavigationBar` and `IndexedStack`.
+- Creating scrollable pages with `CustomScrollView`, `SliverToBoxAdapter`, and `SliverGrid`.
+- Displaying text, images, banners, and product sections.
+- Managing basic UI state with `StatefulWidget` and `setState`.
 
-A few resources to get you started if this is your first Flutter project:
+This project is intended for learning and experimentation, not as a production-ready shopping app. Some screens and product content are placeholders.
+
+## Learning Resources
 
 - [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
 - [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
