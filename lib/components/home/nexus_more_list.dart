@@ -18,12 +18,12 @@ class _NexusMoreListState extends State<NexusMoreList> {
       ),
       itemBuilder: (BuildContext context, int index) {
         return Container(
+          color: Colors.blue,
+          alignment: Alignment.center,
           child: Text(
             "商品",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
-          color: Colors.blue,
-          alignment: Alignment.center,
         );
       },
     );

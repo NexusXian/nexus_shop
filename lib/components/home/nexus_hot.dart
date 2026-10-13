@@ -8,7 +8,6 @@ class NexusHot extends StatefulWidget {
 }
 
 class _NexusHotState extends State<NexusHot> {
-
   @override
   Widget build(BuildContext context) {
     return Container(

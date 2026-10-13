@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
     return [
       SliverToBoxAdapter(child: NexusSlider(bannerList: _bannerList)),
       SliverToBoxAdapter(child: SizedBox(height: 10)),
-      SliverToBoxAdapter(child: NexusCategory(categoryList: _categoryList,)),
+      SliverToBoxAdapter(child: NexusCategory(categoryList: _categoryList)),
       SliverToBoxAdapter(child: SizedBox(height: 10)),
       SliverToBoxAdapter(child: NexusSuggestion()),
       SliverToBoxAdapter(child: SizedBox(height: 10)),
@@ -59,11 +59,12 @@ class _HomeViewState extends State<HomeView> {
       });
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to load banners: $error')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Failed to load banners: $error')));
     }
   }
+
   Future<void> _getCategoryList() async {
     try {
       final res = await getCategoryListAPI();

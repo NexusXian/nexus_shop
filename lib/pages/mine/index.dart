@@ -8,11 +8,8 @@ class MineView extends StatefulWidget {
 }
 
 class _MineViewState extends State<MineView> {
-
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("我的"),
-    );
+    return Center(child: Text("我的"));
   }
 }
