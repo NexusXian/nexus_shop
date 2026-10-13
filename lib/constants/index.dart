@@ -8,6 +8,7 @@ class GlobalConstants {
 // API constants
 class HttpConstants {
   static const String bannerList = "/home/banner";
+  static const String categoryList = "/home/category/head";
 }
 
 

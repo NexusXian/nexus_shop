@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../viewmodels/home.dart';
+
 class NexusCategory extends StatefulWidget {
-  const NexusCategory({super.key});
+  final List<CategoryItem> categoryList;
+
+  const NexusCategory({super.key, required this.categoryList});
 
   @override
   State<NexusCategory> createState() => _NexusCategoryState();
@@ -16,19 +20,29 @@ class _NexusCategoryState extends State<NexusCategory> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
+          final item = widget.categoryList[index];
           return Container(
             width: 80,
             height: 100,
-            color: Colors.blue,
             alignment: Alignment.center,
             margin: EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              "分类$index",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 231, 232, 234),
+              borderRadius: BorderRadius.circular(40),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.network(item.picture, width: 50, height: 50),
+                Text(
+                  item.name,
+                  style: TextStyle(fontSize: 12, color: Colors.black),
+                ),
+              ],
             ),
           );
         },
-        itemCount: 10,
+        itemCount: widget.categoryList.length,
       ),
     );
   }

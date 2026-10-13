@@ -16,11 +16,12 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   List<BannerItem> _bannerList = [];
+  List<CategoryItem> _categoryList = [];
   List<Widget> _getWidget() {
     return [
       SliverToBoxAdapter(child: NexusSlider(bannerList: _bannerList)),
       SliverToBoxAdapter(child: SizedBox(height: 10)),
-      SliverToBoxAdapter(child: NexusCategory()),
+      SliverToBoxAdapter(child: NexusCategory(categoryList: _categoryList,)),
       SliverToBoxAdapter(child: SizedBox(height: 10)),
       SliverToBoxAdapter(child: NexusSuggestion()),
       SliverToBoxAdapter(child: SizedBox(height: 10)),
@@ -46,6 +47,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     _getBannerList();
+    _getCategoryList();
   }
 
   Future<void> _getBannerList() async {
@@ -59,6 +61,20 @@ class _HomeViewState extends State<HomeView> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to load banners: $error')),
+      );
+    }
+  }
+  Future<void> _getCategoryList() async {
+    try {
+      final res = await getCategoryListAPI();
+      if (!mounted) return;
+      setState(() {
+        _categoryList = res;
+      });
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to load category: $error')),
       );
     }
   }

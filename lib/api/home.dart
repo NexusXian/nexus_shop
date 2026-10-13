@@ -10,3 +10,8 @@ Future<List<BannerItem>> getBannerListAPI() async {
       .toList();
 }
 
+Future<List<CategoryItem>> getCategoryListAPI() async {
+  return ((await dioRequest.get(HttpConstants.categoryList)) as List)
+      .map((item) => CategoryItem.fromJson(item as Map<String, dynamic>))
+      .toList();
+}
