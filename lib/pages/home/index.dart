@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nexus_shop/contants/home/nexus_category.dart';
-import 'package:nexus_shop/contants/home/nexus_hot.dart';
-import 'package:nexus_shop/contants/home/nexus_more_list.dart';
-import 'package:nexus_shop/contants/home/nexus_slider.dart';
-import 'package:nexus_shop/contants/home/nexus_suggestion.dart';
+import 'package:nexus_shop/components/home/nexus_category.dart';
+import 'package:nexus_shop/components/home/nexus_hot.dart';
+import 'package:nexus_shop/components/home/nexus_more_list.dart';
+import 'package:nexus_shop/components/home/nexus_slider.dart';
+import 'package:nexus_shop/components/home/nexus_suggestion.dart';
 import 'package:nexus_shop/viewmodels/home.dart';
 
 class HomeView extends StatefulWidget {
@@ -54,6 +54,7 @@ class _HomeViewState extends State<HomeView> {
       NexusMoreList(),
     ];
   }
+
 
   @override
   Widget build(BuildContext context) {
