@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexus_shop/api/home.dart';
 import 'package:nexus_shop/components/home/nexus_category.dart';
 import 'package:nexus_shop/components/home/nexus_hot.dart';
 import 'package:nexus_shop/components/home/nexus_more_list.dart';
@@ -14,21 +15,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final List<BannerItem> _bannerList = [
-    BannerItem(
-      id: "1",
-      imageUrl: "https://image.koyomigal.xyz/admin/1/2026/09/236335cb-6c8f-4f81-a623-b1fd9614f314.png",
-    ),
-    BannerItem(
-      id: "2",
-      imageUrl: "https://image.koyomigal.xyz/admin/1/2026/09/4fe1f773-697c-4ba8-a665-3dfb7acbc4b1.jpg",
-    ),
-    BannerItem(
-      id: "3",
-      imageUrl: "https://image.koyomigal.xyz/admin/1/2026/09/c3b00d3c-a021-413f-8ef1-11cd17679825.jpg",
-    ),
-  ];
-
+  List<BannerItem> _bannerList = [];
   List<Widget> _getWidget() {
     return [
       SliverToBoxAdapter(child: NexusSlider(bannerList: _bannerList)),
@@ -55,6 +42,26 @@ class _HomeViewState extends State<HomeView> {
     ];
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _getBannerList();
+  }
+
+  Future<void> _getBannerList() async {
+    try {
+      final res = await getBannerListAPI();
+      if (!mounted) return;
+      setState(() {
+        _bannerList = res;
+      });
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to load banners: $error')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
